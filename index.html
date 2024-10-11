@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>SkyWay P2Pビデオ通話</title>
+    <style>
+/* 画面の基本スタイル */
+#loginScreen, #operatorScreen, #userScreen, #main {
+    display: none;
+}
+
+/* .active クラスを持つ要素に対して display: block を適用 */
+#loginScreen.active, #operatorScreen.active, #userScreen.active, #main.active {
+    display: block;
+}
+
+video {
+    width: 45%;
+    margin: 2.5%;
+    border: 1px solid #ccc;
+}
+
+#peerIdDisplay {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- ログイン画面 -->
+    <div id="loginScreen" class="active">
+        <h2>ログイン</h2>
+        <button id="operatorBtn">オペレーター</button>
+        <button id="userBtn">利用者</button>
+    </div>
+
+    <!-- オペレーター画面 -->
+    <div id="operatorScreen">
+        <h2>オペレーター画面</h2>
+        <div>
+        </div>
+    </div>
+
+    <!-- 利用者画面 -->
+    <div id="userScreen">
+        <h2>利用者画面</h2>
+        <div>
+        </div>
+    </div>
+
+    <div id="main">
+        <video id="myVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+        <button id="endCallUser">通話終了</button>
+    </div>
+
+    <!-- SkyWay SDK の読み込み -->
+    <script src="https://cdn.jsdelivr.net/npm/@skyway-sdk/room/dist/skyway_room-latest.js"></script>
+    <!-- main.js の読み込み -->
+    <script src="main.js"></script>
+</body>
+</html>
